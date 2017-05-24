@@ -9,15 +9,12 @@ public class Goal : MonoBehaviour
     [SerializeField]
     Light goalLight;
 
-    [SerializeField]
-    Renderer[] goalRenderers;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other == ball)
-        {
-            goalLight.color = Color.blue;
-            //foreach (Renderer r in goalRenderers) r.material.color = Color.yellow;
-        }
+        if (other == ball) goalLight.color = Color.blue;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other == ball) goalLight.color = Color.red;
     }
 }
