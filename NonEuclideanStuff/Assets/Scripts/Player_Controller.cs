@@ -42,6 +42,8 @@ public class Player_Controller : MonoBehaviour
 
         // if you press the jump button and you're not already jumping, jump
         //if (Input.GetButtonDown("Jump") && !jumping) Jump();
+
+        if (Input.GetKeyDown(KeyCode.Escape)) Cursor.visible = true;
     }
 
     void FixedUpdate()
