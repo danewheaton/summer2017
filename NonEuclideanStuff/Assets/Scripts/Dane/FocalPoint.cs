@@ -51,6 +51,7 @@ public class FocalPoint : MonoBehaviour
 
         if (playerIsClose && playerIsLookingInTheRightDirection && !activated)
         {
+            // passes the name of the gameObject. TODO: I'm uncomfortable passing the name of the gameObject, because people might rename the object, but I am not sure what the best alternative is -DW
             if (OnFocalPointEventTriggered != null)
                 OnFocalPointEventTriggered(gameObject.name.ToLower(), isTeleporter, overwritePlayerCameraAngles, teleportDestination, waitTime);
 
