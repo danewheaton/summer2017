@@ -10,10 +10,10 @@ enum PlayerIs { lookingAtObject, lookingAwayFromObject, hasGlimpsedObject }
 
 public class FocalPoint : MonoBehaviour
 {
-    public delegate void FocalPointEventTriggered(string nameOfFocalPoint, bool shouldTeleport, bool shouldSetLookDirection, Transform destination);
+    public delegate void FocalPointEventTriggered(string nameOfFocalPoint, bool shouldTeleport, bool shouldSetLookDirection, Transform destination, float wait);
     public static event FocalPointEventTriggered OnFocalPointEventTriggered;
 
-    [SerializeField] float range = 10;
+    [SerializeField] float range = 10, visibilityAngle = 60, waitTime;
     [SerializeField] PlayerIs activationCriteriaForPlayer;
     [SerializeField] bool isTeleporter, overwritePlayerCameraAngles;
 
@@ -36,14 +36,14 @@ public class FocalPoint : MonoBehaviour
         {
             case PlayerIs.lookingAtObject:
                 playerIsLookingInTheRightDirection =
-                    Vector3.Angle(transform.forward, (transform.position - player.position)) > Camera.main.fieldOfView;
+                    Vector3.Angle(player.forward, (transform.position - player.position)) < visibilityAngle;
                 break;
             case PlayerIs.lookingAwayFromObject:
                 playerIsLookingInTheRightDirection =
-                    Vector3.Angle(transform.forward, (transform.position - player.position)) < Camera.main.fieldOfView;
+                    Vector3.Angle(player.forward, (transform.position - player.position)) > visibilityAngle;
                 break;
             case PlayerIs.hasGlimpsedObject:
-                // TODO
+                // TODO: player sees object, then looks away
                 break;
             default:
                 break;
@@ -52,7 +52,7 @@ public class FocalPoint : MonoBehaviour
         if (playerIsClose && playerIsLookingInTheRightDirection && !activated)
         {
             if (OnFocalPointEventTriggered != null)
-                OnFocalPointEventTriggered(gameObject.name, isTeleporter, overwritePlayerCameraAngles, teleportDestination);
+                OnFocalPointEventTriggered(gameObject.name.ToLower(), isTeleporter, overwritePlayerCameraAngles, teleportDestination, waitTime);
 
             activated = true;
         }
