@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 1e4ac86b110d1a64695194da0d6dd0d9
+timeCreated: 1497210339
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: GabeMesh
+    100004: head
+    100006: headTip1
+    100008: lft_ankle
+    100010: lft_ball
+    100012: lft_clavicle
+    100014: lft_elbow
+    100016: lft_helpJShoulder
+    100018: lft_knee
+    100020: lft_lowArm
+    100022: lft_mid01
+    100024: lft_mid02
+    100026: lft_mid03
+    100028: lft_palm
+    100030: lft_pinkie01
+    100032: lft_pinkie02
+    100034: lft_pinkie03
+    100036: lft_pointer01
+    100038: lft_pointer02
+    100040: lft_pointer03
+    100042: lft_ring01
+    100044: lft_ring02
+    100046: lft_ring03
+    100048: lft_shoulder
+    100050: lft_thigh
+    100052: lft_thumb01
+    100054: lft_thumb02
+    100056: lft_thumb03
+    100058: lft_toe
+    100060: lft_upLeg
+    100062: lft_wrist
+    100064: neck
+    100066: R_ankle
+    100068: R_ball
+    100070: R_clavicle
+    100072: R_elbow
+    100074: R_helpJShoulder
+    100076: R_knee
+    100078: R_lowArm
+    100080: R_mid01
+    100082: R_mid02
+    100084: R_mid03
+    100086: R_palm
+    100088: R_pinkie01
+    100090: R_pinkie02
+    100092: R_pinkie03
+    100094: R_pointer01
+    100096: R_pointer02
+    100098: R_pointer03
+    100100: R_ring01
+    100102: R_ring02
+    100104: R_ring03
+    100106: R_shoulder
+    100108: R_thigh
+    100110: R_thumb01
+    100112: R_thumb02
+    100114: R_thumb03
+    100116: R_toe
+    100118: R_upLeg
+    100120: R_wrist
+    100122: spine01
+    100124: spine02
+    100126: spine03
+    100128: spine04
+    400000: //RootNode
+    400002: GabeMesh
+    400004: head
+    400006: headTip1
+    400008: lft_ankle
+    400010: lft_ball
+    400012: lft_clavicle
+    400014: lft_elbow
+    400016: lft_helpJShoulder
+    400018: lft_knee
+    400020: lft_lowArm
+    400022: lft_mid01
+    400024: lft_mid02
+    400026: lft_mid03
+    400028: lft_palm
+    400030: lft_pinkie01
+    400032: lft_pinkie02
+    400034: lft_pinkie03
+    400036: lft_pointer01
+    400038: lft_pointer02
+    400040: lft_pointer03
+    400042: lft_ring01
+    400044: lft_ring02
+    400046: lft_ring03
+    400048: lft_shoulder
+    400050: lft_thigh
+    400052: lft_thumb01
+    400054: lft_thumb02
+    400056: lft_thumb03
+    400058: lft_toe
+    400060: lft_upLeg
+    400062: lft_wrist
+    400064: neck
+    400066: R_ankle
+    400068: R_ball
+    400070: R_clavicle
+    400072: R_elbow
+    400074: R_helpJShoulder
+    400076: R_knee
+    400078: R_lowArm
+    400080: R_mid01
+    400082: R_mid02
+    400084: R_mid03
+    400086: R_palm
+    400088: R_pinkie01
+    400090: R_pinkie02
+    400092: R_pinkie03
+    400094: R_pointer01
+    400096: R_pointer02
+    400098: R_pointer03
+    400100: R_ring01
+    400102: R_ring02
+    400104: R_ring03
+    400106: R_shoulder
+    400108: R_thigh
+    400110: R_thumb01
+    400112: R_thumb02
+    400114: R_thumb03
+    400116: R_toe
+    400118: R_upLeg
+    400120: R_wrist
+    400122: spine01
+    400124: spine02
+    400126: spine03
+    400128: spine04
+    4300000: GabeMesh
+    9500000: //RootNode
+    13700000: GabeMesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

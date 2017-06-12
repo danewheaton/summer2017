@@ -3,4 +3,5 @@
 *.userprefs
 NonEuclideanStuff/Library/
 NonEuclideanStuff/Temp/
-*.suo
+Horse/Library/
+Horse/Temp/
