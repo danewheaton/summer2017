@@ -10,7 +10,7 @@ enum PlayerIs { lookingAtObject, lookingAwayFromObject, hasGlimpsedObject }
 
 public class FocalPoint : MonoBehaviour
 {
-    public delegate void FocalPointEventTriggered(string nameOfFocalPoint, bool shouldTeleport, bool shouldSetLookDirection, Transform destination, float wait);
+    public delegate void FocalPointEventTriggered(GameObject focalPoint, bool shouldTeleport, bool shouldSetLookDirection, Transform destination, float wait);
     public static event FocalPointEventTriggered OnFocalPointEventTriggered;
 
     [SerializeField] float range = 10, visibilityAngle = 60, waitTime;
@@ -53,7 +53,7 @@ public class FocalPoint : MonoBehaviour
         {
             // passes the name of the gameObject. TODO: I'm uncomfortable passing the name of the gameObject, because people might rename the object, but I am not sure what the best alternative is -DW
             if (OnFocalPointEventTriggered != null)
-                OnFocalPointEventTriggered(gameObject.name.ToLower(), isTeleporter, overwritePlayerCameraAngles, teleportDestination, waitTime);
+                OnFocalPointEventTriggered(gameObject, isTeleporter, overwritePlayerCameraAngles, teleportDestination, waitTime);
 
             activated = true;
         }
