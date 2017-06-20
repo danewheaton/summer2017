@@ -28,7 +28,7 @@ public class P_EventTriggers : MonoBehaviour
         if (shouldTeleport && destination != null)
             StartCoroutine(Teleport(shouldSetLookDirection, destination, wait));
 
-        switch (focalPoint.name.ToLower())
+        switch (focalPoint.name.ToLower())  // TODO: find a cleaner solution to identifying focal points than the name of the gameObject
         {
             case "startingcorridor":
                 playerController.ChangeMovementSpeed(playerController.OriginalSpeed);
@@ -37,8 +37,12 @@ public class P_EventTriggers : MonoBehaviour
                     r.enabled = false;
                     r.gameObject.GetComponent<Collider>().enabled = false;
                 }
+                oldWestTown.SetActive(false);
                 break;
-            case "oldwesttownobject":
+            case "insidewell":
+                oldWestTown.SetActive(true);
+                break;
+            case "oldwesttownobject":   // this particular group of focal points was a test - the focalPoint script is not intended to be used on dozens of similar objects, as is the case for old west town objects
                 focalPoint.GetComponent<Renderer>().enabled = true;
                 focalPoint.GetComponent<Collider>().enabled = true;
                 break;

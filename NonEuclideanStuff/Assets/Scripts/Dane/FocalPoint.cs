@@ -20,7 +20,11 @@ public class FocalPoint : MonoBehaviour
     [Tooltip("this field only matters if the isTeleporter bool is checked")]
     [SerializeField] Transform teleportDestination;
 
+    [Tooltip("these are debug tools to check values in Update")]
+    [SerializeField] bool printDistance, printAngle;
+
     Transform player;
+    float distance, angle;
     bool playerIsClose, playerIsLookingInTheRightDirection, activated;
 
     private void Start()
@@ -30,17 +34,18 @@ public class FocalPoint : MonoBehaviour
 
     private void Update()
     {
-        playerIsClose = Vector3.Distance(transform.position, player.position) < range;
+        distance = Vector3.Distance(transform.position, player.position);
+        angle = Vector3.Angle(player.forward, (transform.position - player.position));
+
+        playerIsClose = distance < range;
 
         switch (activationCriteriaForPlayer)
         {
             case PlayerIs.lookingAtObject:
-                playerIsLookingInTheRightDirection =
-                    Vector3.Angle(player.forward, (transform.position - player.position)) < visibilityAngle;
+                playerIsLookingInTheRightDirection = angle < visibilityAngle;
                 break;
             case PlayerIs.lookingAwayFromObject:
-                playerIsLookingInTheRightDirection =
-                    Vector3.Angle(player.forward, (transform.position - player.position)) > visibilityAngle;
+                playerIsLookingInTheRightDirection = angle > visibilityAngle;
                 break;
             case PlayerIs.hasGlimpsedObject:
                 // TODO: player sees object, then looks away
@@ -57,5 +62,8 @@ public class FocalPoint : MonoBehaviour
 
             activated = true;
         }
+
+        if (printDistance) print(distance);
+        if (printAngle) print(angle);
     }
 }
