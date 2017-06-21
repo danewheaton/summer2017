@@ -8,6 +8,7 @@ public class P_EventTriggers : MonoBehaviour
 {
     [SerializeField] P_Controller playerController;
     [SerializeField] GameObject oldWestTown;
+    [SerializeField] Collider canyonTrigger;
 
     private void OnEnable()
     {
@@ -20,7 +21,10 @@ public class P_EventTriggers : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other == canyonTrigger)
+        {
+            transform.position += new Vector3(1000, 0, 0);
+        }
     }
 
     private void ReactToFocalPointEvent(GameObject focalPoint, bool shouldTeleport, bool shouldSetLookDirection, Transform destination, float wait)
@@ -42,6 +46,7 @@ public class P_EventTriggers : MonoBehaviour
             case "insidewell":
                 oldWestTown.SetActive(true);
                 break;
+            case "canyon":
             case "oldwesttownobject":   // this particular group of focal points was a test - the focalPoint script is not intended to be used on dozens of similar objects, as is the case for old west town objects
                 focalPoint.GetComponent<Renderer>().enabled = true;
                 focalPoint.GetComponent<Collider>().enabled = true;
