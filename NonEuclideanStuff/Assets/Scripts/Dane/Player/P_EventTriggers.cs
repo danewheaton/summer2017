@@ -8,7 +8,7 @@ public class P_EventTriggers : MonoBehaviour
 {
     [SerializeField] P_Controller playerController;
     [SerializeField] GameObject oldWestTown;
-    [SerializeField] Collider canyonTrigger;
+    [SerializeField] Collider canyonTrigger, hiddenRoomTrigger;
 
     private void OnEnable()
     {
@@ -24,6 +24,10 @@ public class P_EventTriggers : MonoBehaviour
         if (other == canyonTrigger)
         {
             transform.position += new Vector3(1000, 0, 0);
+        }
+        else if (other == hiddenRoomTrigger)
+        {
+
         }
     }
 
