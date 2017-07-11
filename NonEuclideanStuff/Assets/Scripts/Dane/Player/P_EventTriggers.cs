@@ -12,11 +12,11 @@ public class P_EventTriggers : MonoBehaviour
 
     private void OnEnable()
     {
-        FocalPoint.OnFocalPointEventTriggered += ReactToFocalPointEvent;
+        //FocalPoint.OnFocalPointEventTriggered += ReactToFocalPointEvent;
     }
     private void OnDisable()
     {
-        FocalPoint.OnFocalPointEventTriggered -= ReactToFocalPointEvent;
+        //FocalPoint.OnFocalPointEventTriggered -= ReactToFocalPointEvent;
     }
 
     private void OnTriggerEnter(Collider other)

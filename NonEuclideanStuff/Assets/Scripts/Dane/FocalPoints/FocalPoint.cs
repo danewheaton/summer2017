@@ -6,13 +6,9 @@ using UnityEngine;
 enum PlayerIs { lookingAtObject, lookingAwayFromObject, hasGlimpsedObject }
 
 // PURPOSE: this script is for objects which make weird things happen to the player
-// SUBSCRIBER SCRIPT(S): P_EventTriggers
 
-public class FocalPoint : MonoBehaviour
+public class FocalPoint : MonoBehaviour, IPlayTricksOnThePlayer
 {
-    public delegate void FocalPointEventTriggered(GameObject focalPoint, bool shouldTeleport, bool shouldSetLookDirection, Transform destination, float wait);
-    public static event FocalPointEventTriggered OnFocalPointEventTriggered;
-
     [SerializeField] float range = 10, visibilityAngle = 60, waitTime;
     [SerializeField] PlayerIs activationCriteriaForPlayer;
     [SerializeField] bool isTeleporter, overwritePlayerCameraAngles;
@@ -23,9 +19,14 @@ public class FocalPoint : MonoBehaviour
     [Tooltip("these are debug tools to check values in Update")]
     [SerializeField] bool printDistance, printAngle;
 
-    Transform player;
+    protected Transform player;
     float distance, angle;
     bool playerIsClose, playerIsLookingInTheRightDirection, activated;
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, range / 2);
+    }
 
     private void Start()
     {
@@ -56,14 +57,37 @@ public class FocalPoint : MonoBehaviour
 
         if (playerIsClose && playerIsLookingInTheRightDirection && !activated)
         {
-            // passes the name of the gameObject. TODO: I'm uncomfortable passing the name of the gameObject, because people might rename the object, but I am not sure what the best alternative is -DW
-            if (OnFocalPointEventTriggered != null)
-                OnFocalPointEventTriggered(gameObject, isTeleporter, overwritePlayerCameraAngles, teleportDestination, waitTime);
-
+            OnProximityEventTriggered();
             activated = true;
         }
 
         if (printDistance) print(distance);
         if (printAngle) print(angle);
+    }
+
+    public virtual void OnTriggerEvent()
+    {
+        // see child class overrides for specific behaviors
+    }
+
+    protected virtual void OnProximityEventTriggered()
+    {
+        if (isTeleporter && teleportDestination != null)
+            StartCoroutine(Teleport());
+
+        // see child class overrides for specific behaviors
+    }
+
+    IEnumerator Teleport()
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        player.position = teleportDestination.position;
+
+        if (overwritePlayerCameraAngles)
+        {
+            player.eulerAngles = new Vector3(player.eulerAngles.x, teleportDestination.eulerAngles.y, player.eulerAngles.z);
+            Camera.main.transform.eulerAngles = new Vector3(teleportDestination.eulerAngles.x, player.eulerAngles.y, player.eulerAngles.z);
+        }
     }
 }
