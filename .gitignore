@@ -1,8 +1,10 @@
 *.csproj
 *.sln
 *.userprefs
+*.suo
 NonEuclideanStuff/Library/
 NonEuclideanStuff/Temp/
 Horse/Library/
 Horse/Temp/
-*.suo
+Ethan/Library/
+Ethan/Temp/
