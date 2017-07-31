@@ -7,6 +7,6 @@ public class CameraFollow : MonoBehaviour
     private void Update()
     {
         Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-        transform.LookAt(player);
+        //transform.LookAt(player);
     }
 }
